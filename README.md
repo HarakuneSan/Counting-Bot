@@ -1,2 +1,3 @@
 # Counting-Bot
- A cointing game bot for my discord server
+
+A counting game bot for my discord server
