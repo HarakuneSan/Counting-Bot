@@ -1,15 +1,25 @@
-FROM node:20.5.1
+# Build stage
+FROM node:20 AS build
 
-# Copy package.json and package-lock.json
+WORKDIR /app
+
 COPY package*.json ./
 
-# Install npm production packages
-RUN npm install
+RUN npm install && \
+    npm cache clean --force
 
-COPY . ./app
 
-ENV TOKEN
-ENV CLIENT_ID
-ENV PREFIX
+COPY . .
+
+# Final runtime stage
+FROM node:20-slim
+
+WORKDIR /app
+
+COPY --from=build /app .
+
+ENV TOKEN=your_token
+ENV CLIENT_ID=_your_client_id
+ENV PREFIX=your_prefix
 
 CMD ["npm", "start"]
