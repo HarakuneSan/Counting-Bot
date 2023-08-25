@@ -22,4 +22,6 @@ ENV TOKEN=your_token
 ENV CLIENT_ID=_your_client_id
 ENV PREFIX=your_prefix
 
+VOLUME /app
+
 CMD ["npm", "start"]
