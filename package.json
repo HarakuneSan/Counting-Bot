@@ -5,7 +5,11 @@
   "version": "2.1.7",
   "dependencies": {
     "discord.js": "^13.14.0",
+    "dotenv": "^16.3.1",
     "fstorm": "latest",
     "jimp": "latest"
+  },
+  "scripts": {
+    "start": "node start.js && node bot.js"
   }
 }
